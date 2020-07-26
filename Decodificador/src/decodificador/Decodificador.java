@@ -10,7 +10,7 @@ public class Decodificador {
         
     public static Scanner s = new Scanner(System.in);
     static int contador=0; 
-    static StringBuffer respuesta = new StringBuffer();
+    static StringBuffer resultadotemp = new StringBuffer();
    static String resultadofinal = "";
    static int inicio = 0, inicio2 = 0;
     
@@ -52,8 +52,8 @@ public class Decodificador {
    
     
     public static void comparar(){
-         if (respuesta.length() > resultadofinal.length()) {
-                resultadofinal = respuesta.toString();
+         if (resultadotemp.length() > resultadofinal.length()) {
+                resultadofinal = resultadotemp.toString();
             }
     }
     public static String Analizador(char[] palabra1,char[] palabra2, int i, int j) 
@@ -64,7 +64,7 @@ public class Decodificador {
                //  System.out.println("j=="+j);
             if (palabra1[i] == palabra2[j]) {
                       //  System.out.println("match =>"+palabra1[i]);
-                        respuesta = respuesta.append(palabra1[i]);
+                        resultadotemp = resultadotemp.append(palabra1[i]);
                         inicio = j + 1;
                         i++;
                         j++;
@@ -76,13 +76,13 @@ public class Decodificador {
                     } else {
                         comparar();
                       //  System.out.println(resultadofinal);
-                        respuesta.delete(0, respuesta.length());
+                        resultadotemp.delete(0, resultadotemp.length());
                         
                         
                     }
         }
         comparar();
-        respuesta.delete(0, respuesta.length());
+        resultadotemp.delete(0, resultadotemp.length());
         return resultadofinal;
     }
 }
