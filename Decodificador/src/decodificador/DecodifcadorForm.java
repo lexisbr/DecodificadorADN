@@ -16,8 +16,10 @@ public class DecodifcadorForm extends javax.swing.JFrame {
     /**
      * Creates new form DecodifcadorForm
      */
+   
     public DecodifcadorForm() {
         initComponents();
+        
     }
 
     /**
@@ -185,10 +187,17 @@ public class DecodifcadorForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            if((jTextField1.getText().equals(""))||(jTextField3.getText().equals(""))){
+            
+        if((jTextField1.getText().equals(""))||(jTextField3.getText().equals(""))){
                 JOptionPane.showMessageDialog(null, "Debe ingresar las dos secuencias");
+            }else{
+                   Decodificador.cadena1=jTextField1.getText();
+                   Decodificador.cadena2=jTextField3.getText();
+                   Decodificador.coincidencias();
+                   jLabel4.setText(Decodificador.resultadofinal);
+                  
+                  
             }
-            jLabel4.setText(jTextField1.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
